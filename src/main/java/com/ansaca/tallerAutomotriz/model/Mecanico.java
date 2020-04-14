@@ -120,5 +120,12 @@ public class Mecanico extends Persona {
     }
 
 
+    public void actualizarDisponibilidad(){
+        if(disponibilidad)
+            disponibilidad = false;
+        else
+            disponibilidad = true;
+    }
+
 
 }
