@@ -1,0 +1,5 @@
+INSERT INTO REPUESTO (id_repuesto, cantidad, descripcion, nombre, valor) values (1, 5, 'Bateria motocicleta', 'bateria', 40000)
+INSERT INTO REPUESTO (id_repuesto, cantidad, descripcion, nombre, valor) values (2, 3, 'Bateria carro', 'bateria', 140000)
+INSERT INTO REPUESTO (id_repuesto, cantidad, descripcion, nombre, valor) values (3, 3, 'Aceite YAMALUBE 4t', 'aceite', 22000)
+INSERT INTO FACTURA (id_factura, descripcion_mano_obra, valor_mano_obra) values (1, 'se le cambio el aceite y se revisaron frenos', 10000)
+INSERT INTO FACTURA (id_factura, descripcion_mano_obra, valor_mano_obra) values (2, 'tencion de cadena, carburacion y calibrar aire', 22000)
