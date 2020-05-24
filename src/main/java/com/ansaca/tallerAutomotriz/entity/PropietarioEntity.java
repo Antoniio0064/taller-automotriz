@@ -16,8 +16,8 @@ public class PropietarioEntity {
     @Column(name = "pago")
     private double pago;
     @ManyToOne
-    @JoinColumn(name = "vehiculo")
-    private VehiculoEntity vehiculo;
+    @JoinColumn(name = "idVehiculo")
+    private VehiculoEntity Vehiculo;
 
 
 }

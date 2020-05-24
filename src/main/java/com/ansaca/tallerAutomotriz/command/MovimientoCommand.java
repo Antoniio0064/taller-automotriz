@@ -1,5 +1,6 @@
 package com.ansaca.tallerAutomotriz.command;
 
+import com.ansaca.tallerAutomotriz.entity.FacturaEntity;
 import com.ansaca.tallerAutomotriz.model.Factura;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,5 +16,5 @@ public class MovimientoCommand {
     private Date fechaIngreso;
     private Date fechaSalida;
     private String placa;
-    private Factura factura;
+    private FacturaEntity factura;
 }

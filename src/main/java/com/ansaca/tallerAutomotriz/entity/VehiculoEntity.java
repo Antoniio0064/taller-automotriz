@@ -21,7 +21,7 @@ public class VehiculoEntity {
     @Column(name = "tipoVehiculo")
     private String tipoVehiculo;
     @OneToOne
-    @JoinColumn(name = "historial")
-    private HistorialEntity historial;
+    @JoinColumn(name = "idHistorial")
+    private HistorialEntity Historial;
 
 }

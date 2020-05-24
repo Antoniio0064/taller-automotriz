@@ -21,7 +21,7 @@ public class MovimientoEntity {
     private Date fechaSalida;
     @Column(name = "placa")
     private String placa;
-    @ManyToOne
-    @JoinColumn(name = "factura")
-    private FacturaEntity factura;
+    @OneToOne
+    @JoinColumn(name = "idFactura")
+    private FacturaEntity Factura;
 }

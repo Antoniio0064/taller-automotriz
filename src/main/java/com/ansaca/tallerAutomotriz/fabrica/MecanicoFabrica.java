@@ -21,6 +21,8 @@ public class MecanicoFabrica {
         mecanicoCommand.setIdMecanico(mecanicoEntity.getIdMecanico());
         mecanicoCommand.setDisponibilidad(mecanicoEntity.getDisponibilidad());
         mecanicoCommand.setEspecialidad(mecanicoEntity.getEspecialidad());
+        mecanicoCommand.setMovimiento(mecanicoEntity.getMovimiento());
+        mecanicoCommand.setPersona(mecanicoEntity.getPersona());
         return mecanicoCommand;
     }
 }

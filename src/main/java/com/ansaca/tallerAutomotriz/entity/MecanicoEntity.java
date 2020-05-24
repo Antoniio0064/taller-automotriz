@@ -13,11 +13,14 @@ public class MecanicoEntity {
     @GeneratedValue
     @Column(name = "idMecanico")
     private Integer idMecanico;
+    @ManyToOne
+    @JoinColumn(name = "idPersona")
+    private  PersonaEntity persona;
     @Column(name = "especialidad")
     private String especialidad;
     @Column(name = "disponibilidad")
     private Boolean disponibilidad;
     @ManyToOne
-    @JoinColumn(name = "movimiento")
-    private MovimientoEntity movimiento;
+    @JoinColumn(name = "idMovimiento")
+    private MovimientoEntity Movimiento;
 }

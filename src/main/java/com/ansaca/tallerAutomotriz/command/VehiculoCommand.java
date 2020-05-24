@@ -1,5 +1,6 @@
 package com.ansaca.tallerAutomotriz.command;
 
+import com.ansaca.tallerAutomotriz.entity.HistorialEntity;
 import com.ansaca.tallerAutomotriz.model.Historial;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,5 +14,5 @@ public class VehiculoCommand {
     private String placa;
     private Boolean estado;
     private String tipoVehiculo;
-    private Historial historial;
+    private HistorialEntity historial;
 }

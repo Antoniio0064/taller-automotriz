@@ -20,6 +20,7 @@ public class PropietarioFabrica {
         PropietarioCommand propietarioCommand = new PropietarioCommand();
         propietarioCommand.setIdPropietario(propietarioEntity.getIdPropietario());
         propietarioCommand.setPago(propietarioEntity.getPago());
+        propietarioCommand.setVehiculo(propietarioEntity.getVehiculo());
         return propietarioCommand;
     }
 }

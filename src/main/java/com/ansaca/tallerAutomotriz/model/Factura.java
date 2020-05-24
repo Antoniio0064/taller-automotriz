@@ -17,10 +17,11 @@ public class Factura {
     private String descripcionManoObra;
 
     public static class FacturaBuilder{
+
         private Integer idFactura;
-        private List<Repuesto> RepuestosList = new ArrayList<Repuesto>();
         private double valorManoObra;
         private String descripcionManoObra;
+        private List<Repuesto> RepuestosList = new ArrayList<Repuesto>();
 
         public FacturaBuilder setIdFactura(Integer idFactura) {
             this.idFactura = idFactura;

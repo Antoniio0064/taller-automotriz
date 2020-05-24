@@ -29,7 +29,7 @@ public class Swagger {
     private ApiInfo apiEndPointsInfo() {
         return new ApiInfoBuilder().title("API de taller Automotriz")
                 .description("Servicio para consultar la informacion relaciona con el taller automotriz Ansaca")
-                .contact(new Contact("SW 3" , "www.k4soft.com", "parchismauricio@parchis.com"))
+                .contact(new Contact("SW 3" , "www.ansaca-soft.com", "ansaca@sotf.com"))
                 .license("Apache 2.0")
                 .licenseUrl("https://www.apache.org/licenses/LICENSE-2.0.html")
                 .version("1.0.0")

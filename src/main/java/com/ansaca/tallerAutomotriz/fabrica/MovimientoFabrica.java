@@ -22,6 +22,7 @@ public class MovimientoFabrica {
         movimientoCommand.setPlaca(movimientoEntity.getPlaca());
         movimientoCommand.setFechaIngreso(movimientoEntity.getFechaIngreso());
         movimientoCommand.setFechaSalida(movimientoEntity.getFechaSalida());
+        movimientoCommand.setFactura(movimientoEntity.getFactura());
         return movimientoCommand;
     }
 }
