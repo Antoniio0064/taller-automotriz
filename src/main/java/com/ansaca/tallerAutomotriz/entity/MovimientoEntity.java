@@ -1,6 +1,5 @@
 package com.ansaca.tallerAutomotriz.entity;
 
-import com.ansaca.tallerAutomotriz.model.Factura;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -21,7 +20,9 @@ public class MovimientoEntity {
     private Date fechaSalida;
     @Column(name = "placa")
     private String placa;
+    @Column(name = "detalleMovimiento")
+    private String detalleMovimiento;
     @OneToOne
-    @JoinColumn(name = "idFactura")
-    private FacturaEntity Factura;
+    @JoinColumn(name = "idRepuesto")
+    private RepuestoEntity repuesto;
 }

@@ -23,4 +23,9 @@ public class VehiculoServiceImpl implements VehiculoService {
     public List<VehiculoCommand> findAll() {
         return vehiculoFabrica.entityToCommand(vehiculoRepository.findAll());
     }
+
+    @Override
+    public VehiculoEntity findByPlaca(String placa) {
+        return vehiculoRepository.findByPlaca(placa);
+    }
 }

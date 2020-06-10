@@ -15,12 +15,10 @@ public class Mecanico extends Persona {
     public static final String CORREO_REQUERIDO = "El correo de una persona es requerido";
     public static final String CORREO_FORMATO_INCORRECTO = "el formato ingresado de correo no es el correcto";
     public static final String DIRECCION_REQUERIDA = "La direccion de residencia de una persona es requerida";
-    public static final String MOVIMIENTO_SIN_CONFIGURAR = "Movimiento sin configurar";
 
     private Integer idMecanico;
     private String especialidad;
     private Boolean disponibilidad;
-    private Movimiento movimiento;
 
 
     public static class MecanicoBuilder{
@@ -28,7 +26,6 @@ public class Mecanico extends Persona {
         private Integer idMecanico;
         private String especialidad;
         private Boolean disponibilidad;
-        private Movimiento movimiento;
 
         //Persona
         private Integer idPersona;
@@ -83,11 +80,6 @@ public class Mecanico extends Persona {
             return this;
         }
 
-        public MecanicoBuilder setMovimiento(Movimiento movimiento) {
-            this.movimiento = movimiento;
-            return this;
-        }
-
 
         public Mecanico build() throws BusinessException{
             Mecanico mecanico = new Mecanico();
@@ -113,8 +105,6 @@ public class Mecanico extends Persona {
             mecanico.especialidad = this.especialidad;
             Validator.validarDisponibilidadNula(disponibilidad, DISPONIBILIDAD_REQUERIDA);
             mecanico.disponibilidad = this.disponibilidad;
-            Validator.validarObjetoNulo(movimiento, MOVIMIENTO_SIN_CONFIGURAR);
-            mecanico.movimiento = this.movimiento;
             return mecanico;
         }
     }

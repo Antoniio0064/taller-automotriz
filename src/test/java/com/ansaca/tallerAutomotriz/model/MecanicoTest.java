@@ -194,21 +194,4 @@ public class MecanicoTest {
                 .build();
     }
 
-    @Test
-    public void crearObjetoSinConfigurarMovimiento() throws BusinessException{
-        exception.expect(BusinessException.class);
-        exception.expectMessage(Mecanico.MOVIMIENTO_SIN_CONFIGURAR);
-        Mecanico mecanico = new Mecanico.MecanicoBuilder()
-                .setIdMecanico(1)
-                .setIdPersona(1)
-                .setNombre("juanito")
-                .setApellidos("lonaranjas")
-                .setTelefono(1234567890)
-                .setCorreo("juanito123@hotmail.com")
-                .setDireccion("vereda la aguelita")
-                .setEspecialidad("motos de alto cilindraje")
-                .setDisponibilidad(true)
-                .build();
-    }
-
 }

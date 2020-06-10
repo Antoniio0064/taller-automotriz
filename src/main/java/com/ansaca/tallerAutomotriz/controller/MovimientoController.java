@@ -19,4 +19,5 @@ public class MovimientoController {
 
     @GetMapping("/v1/listado-movimientos")
     public List<MovimientoCommand> findAll(){ return movimientoService.findAll(); }
+
 }

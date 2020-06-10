@@ -16,14 +16,16 @@ public class Movimiento {
     private Date fechaIngreso;
     private Date fechaSalida;
     private String placa;
-    private Factura factura;
+    private String detalleMovimiento;
+    private Repuesto repuesto;
 
     public static class MovimientoBuilder{
         private Integer idMovimiento;
         private Date fechaIngreso;
         private Date fechaSalida;
         private String placa;
-        private Factura factura;
+        private String detalleMovimiento;
+        private Repuesto repuesto;
 
         public MovimientoBuilder setIdMovimiento(Integer idMovimiento) {
             this.idMovimiento = idMovimiento;
@@ -45,8 +47,13 @@ public class Movimiento {
             return this;
         }
 
-        public MovimientoBuilder setFactura(Factura factura) {
-            this.factura = factura;
+        public MovimientoBuilder setDetalleMovimiento(String detalleMovimiento) {
+            this.detalleMovimiento = detalleMovimiento;
+            return this;
+        }
+
+        public MovimientoBuilder setRepuesto(Repuesto repuesto) {
+            this.repuesto = repuesto;
             return this;
         }
 
@@ -60,13 +67,9 @@ public class Movimiento {
             Validator.validarPlacaNula(placa,PLACA_REQUERIDA);
             Validator.validarPlacaVacia(placa,PLACA_REQUERIDA);
             movimiento.placa = this.placa;
-            Validator.validarObjetoNulo(factura, FACTURA_NO_CONFIGURADA);
-            movimiento.factura = this.factura;
+            movimiento.detalleMovimiento = this.detalleMovimiento;
+            movimiento.repuesto = this.repuesto;
             return movimiento;
         }
-    }
-
-    public Factura getFactura() {
-        return factura;
     }
 }

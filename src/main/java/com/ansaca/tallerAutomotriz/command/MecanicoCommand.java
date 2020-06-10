@@ -15,5 +15,4 @@ public class MecanicoCommand {
     private String especialidad;
     private Boolean disponibilidad;
     private PersonaEntity persona;
-    private MovimientoEntity movimiento;
 }

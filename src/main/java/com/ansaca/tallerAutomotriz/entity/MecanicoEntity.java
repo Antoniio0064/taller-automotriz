@@ -20,7 +20,4 @@ public class MecanicoEntity {
     private String especialidad;
     @Column(name = "disponibilidad")
     private Boolean disponibilidad;
-    @ManyToOne
-    @JoinColumn(name = "idMovimiento")
-    private MovimientoEntity Movimiento;
 }

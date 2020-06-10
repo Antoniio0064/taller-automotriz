@@ -70,28 +70,5 @@ public class MovimientoTest {
                 .build();
     }
 
-    @Test
-    public void calcularValorAPagar() throws BusinessException {
-        Repuesto repuesto1 = new Repuesto.RepuestoBuilder().setIdRepuesto(1).setNombre("llanta").setDescripcion("sadas")
-                .setValor(75000).setCantidad(2).build();
-        Repuesto repuesto2 = new Repuesto.RepuestoBuilder().setIdRepuesto(2).setNombre("Aceite").setDescripcion("fjdfkg")
-                .setValor(15000).setCantidad(1).build();
-        List<Repuesto> repuestoList = new ArrayList(){{
-            add(repuesto1);
-            add(repuesto2);
-        }};
-        Factura factura = new Factura.FacturaBuilder()
-                .setIdFactura(1).setRepuestosList(repuestoList).setValorManoObra(20000)
-                .setDescripcionManoObra("cambio aceite y revisión frenos").build();
-        Movimiento movimiento = new Movimiento.MovimientoBuilder()
-                .setFechaIngreso(new Date())
-                .setFechaSalida(new Date())
-                .setPlaca("MLG904")
-                .setFactura(factura)
-                .build();
-        double valorReal = movimiento.getFactura().calcularTotalAPagar();
-        double valorEsperado = 185000;
-        Assert.assertEquals(valorEsperado, valorReal, 1);
-    }
 
 }

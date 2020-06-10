@@ -1,7 +1,6 @@
 package com.ansaca.tallerAutomotriz.command;
 
-import com.ansaca.tallerAutomotriz.entity.FacturaEntity;
-import com.ansaca.tallerAutomotriz.model.Factura;
+import com.ansaca.tallerAutomotriz.entity.RepuestoEntity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -16,5 +15,6 @@ public class MovimientoCommand {
     private Date fechaIngreso;
     private Date fechaSalida;
     private String placa;
-    private FacturaEntity factura;
+    private String detalleMovimiento;
+    private RepuestoEntity repuesto;
 }

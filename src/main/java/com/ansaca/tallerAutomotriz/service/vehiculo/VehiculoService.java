@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface VehiculoService {
     List<VehiculoCommand> findAll();
+
+    VehiculoEntity findByPlaca(String placa);
 }

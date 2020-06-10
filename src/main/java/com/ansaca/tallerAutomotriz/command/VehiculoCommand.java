@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 @NoArgsConstructor
 public class VehiculoCommand {
-    private Integer idVehiculo;
+    private int idVehiculo;
     private String placa;
     private Boolean estado;
     private String tipoVehiculo;
