@@ -23,4 +23,9 @@ public class MecanicoController {
     public String registrarMovimiento(@RequestBody MovimientoCommand movimientoCommand){
         return mecanicoService.registrarMovimiento(movimientoCommand);
     }
+
+    @PostMapping("/mecanico")
+    public String registrarMecanico(@RequestBody MecanicoCommand mecanicoCommand){
+        return mecanicoService.registrarMecanico(mecanicoCommand);
+    }
 }

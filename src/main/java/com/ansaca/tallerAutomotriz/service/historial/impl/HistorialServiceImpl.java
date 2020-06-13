@@ -23,4 +23,11 @@ public class HistorialServiceImpl implements HistorialService {
     public List<HistorialCommand> findAll() {
         return historialFabrica.entityToCommand(historialRepository.findAll());
     }
+
+    @Override
+    public HistorialEntity findById(Integer idHistorial) {
+        return historialRepository.findById(idHistorial).orElse(null);
+    }
+
+
 }

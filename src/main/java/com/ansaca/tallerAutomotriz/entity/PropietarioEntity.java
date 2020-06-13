@@ -18,6 +18,9 @@ public class PropietarioEntity {
     @ManyToOne
     @JoinColumn(name = "idVehiculo")
     private VehiculoEntity Vehiculo;
+    @ManyToOne
+    @JoinColumn(name = "idPersona")
+    private  PersonaEntity persona;
 
 
 }

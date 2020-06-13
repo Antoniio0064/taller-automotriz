@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RepuestoRepository extends JpaRepository<RepuestoEntity, Integer> {
+    RepuestoEntity findByNombre(String nombre);
 }

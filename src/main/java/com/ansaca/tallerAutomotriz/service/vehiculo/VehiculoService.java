@@ -9,4 +9,6 @@ public interface VehiculoService {
     List<VehiculoCommand> findAll();
 
     VehiculoEntity findByPlaca(String placa);
+
+    String registrarVehiculo(VehiculoCommand vehiculoCommand);
 }

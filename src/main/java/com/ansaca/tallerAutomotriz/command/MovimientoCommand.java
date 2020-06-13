@@ -16,5 +16,5 @@ public class MovimientoCommand {
     private Date fechaSalida;
     private String placa;
     private String detalleMovimiento;
-    private RepuestoEntity repuesto;
+    private RepuestoEntity Repuesto;
 }

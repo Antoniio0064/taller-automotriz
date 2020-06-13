@@ -1,12 +1,11 @@
 package com.ansaca.tallerAutomotriz.controller;
 
+import com.ansaca.tallerAutomotriz.command.MecanicoCommand;
 import com.ansaca.tallerAutomotriz.command.PropietarioCommand;
 import com.ansaca.tallerAutomotriz.entity.PropietarioEntity;
 import com.ansaca.tallerAutomotriz.service.propietario.PropietarioService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,4 +18,9 @@ public class PropietarioController {
 
     @GetMapping("/v1/listado-propietarios")
     public List<PropietarioCommand> findAll(){ return propietarioService.findAll(); }
+
+    @PostMapping("/propietario")
+    public String registrarPropietario(@RequestBody PropietarioCommand propietarioCommand){
+        return propietarioService.registrarPropietario(propietarioCommand);
+    }
 }

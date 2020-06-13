@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class RepuestoEntity {
 
     @Id
-    //@GeneratedValue
+    @GeneratedValue
     @Column(name = "idRepuesto")
     private Integer idRepuesto;
     @Column(name = "nombre")

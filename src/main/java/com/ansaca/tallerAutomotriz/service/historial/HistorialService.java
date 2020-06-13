@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface HistorialService {
     List<HistorialCommand> findAll();
+
+    HistorialEntity findById(Integer idHistorial);
 }

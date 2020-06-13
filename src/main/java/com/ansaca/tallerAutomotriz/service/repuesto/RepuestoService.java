@@ -6,5 +6,9 @@ import com.ansaca.tallerAutomotriz.entity.RepuestoEntity;
 import java.util.List;
 
 public interface RepuestoService {
+    RepuestoEntity findById(int idRepuesto);
+
     List<RepuestoCommand> findAll();
+
+    String registrarRepuesto(RepuestoCommand repuestoCommand);
 }

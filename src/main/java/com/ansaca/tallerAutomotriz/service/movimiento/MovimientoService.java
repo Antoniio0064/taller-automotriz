@@ -9,4 +9,5 @@ import java.util.List;
 
 public interface MovimientoService {
     List<MovimientoCommand> findAll();
+    String registrarMovimiento(MovimientoCommand movimientoCommand);
 }
