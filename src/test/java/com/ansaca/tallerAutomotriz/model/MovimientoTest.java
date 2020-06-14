@@ -59,16 +59,4 @@ public class MovimientoTest {
                 .build();
     }
 
-    @Test
-    public void crearObjetoConFacturaSinConfigurar() throws BusinessException {
-        exception.expect(BusinessException.class);
-        exception.expectMessage(Movimiento.FACTURA_NO_CONFIGURADA);
-        Movimiento movimiento = new Movimiento.MovimientoBuilder()
-                .setFechaIngreso(new Date())
-                .setFechaSalida(new Date())
-                .setPlaca("MLG904")
-                .build();
-    }
-
-
 }

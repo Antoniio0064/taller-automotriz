@@ -34,4 +34,12 @@ public class Historial {
             return historial;
         }
     }
+
+    public Integer getIdHistorial() {
+        return idHistorial;
+    }
+
+    public List<Movimiento> getMovimientoList() {
+        return movimientoList;
+    }
 }

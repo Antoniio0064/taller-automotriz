@@ -22,7 +22,8 @@ public class MovimientoEntity {
     private String placa;
     @Column(name = "detalleMovimiento")
     private String detalleMovimiento;
-    @OneToOne
-    @JoinColumn(name = "idRepuesto")
-    private RepuestoEntity repuesto;
+    @Column(name = "finalizado")
+    private boolean finalizado;
+    @Column(name = "idRepuesto")
+    private Integer idRepuesto;
 }

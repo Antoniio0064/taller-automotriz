@@ -72,4 +72,28 @@ public class Movimiento {
             return movimiento;
         }
     }
+
+    public Integer getIdMovimiento() {
+        return idMovimiento;
+    }
+
+    public Date getFechaIngreso() {
+        return fechaIngreso;
+    }
+
+    public Date getFechaSalida() {
+        return fechaSalida;
+    }
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public String getDetalleMovimiento() {
+        return detalleMovimiento;
+    }
+
+    public Repuesto getRepuesto() {
+        return repuesto;
+    }
 }
