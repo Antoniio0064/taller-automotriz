@@ -3,10 +3,13 @@ package com.ansaca.tallerAutomotriz.controller;
 import com.ansaca.tallerAutomotriz.command.MecanicoCommand;
 import com.ansaca.tallerAutomotriz.command.PropietarioCommand;
 import com.ansaca.tallerAutomotriz.entity.PropietarioEntity;
+import com.ansaca.tallerAutomotriz.model.Propietario;
+import com.ansaca.tallerAutomotriz.model.businessexception.BusinessException;
 import com.ansaca.tallerAutomotriz.service.propietario.PropietarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.PublicKey;
 import java.util.List;
 
 @RestController
@@ -22,5 +25,10 @@ public class PropietarioController {
     @PostMapping("/propietario")
     public String registrarPropietario(@RequestBody PropietarioCommand propietarioCommand){
         return propietarioService.registrarPropietario(propietarioCommand);
+    }
+
+    @GetMapping("/{placa}/propietario")
+    public Propietario consultarInformacionPropietario(@PathVariable String placa) throws BusinessException {
+        return propietarioService.consultarInformacionPropietario(placa);
     }
 }

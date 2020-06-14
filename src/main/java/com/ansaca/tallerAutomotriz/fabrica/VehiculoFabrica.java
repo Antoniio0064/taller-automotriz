@@ -22,7 +22,7 @@ public class VehiculoFabrica {
         vehiculoCommand.setPlaca(vehiculoEntity.getPlaca());
         vehiculoCommand.setEstado(vehiculoEntity.getEstado());
         vehiculoCommand.setTipoVehiculo(vehiculoEntity.getTipoVehiculo());
-        vehiculoCommand.setHistorial(vehiculoEntity.getHistorial());
+        vehiculoCommand.setIdHistorial(vehiculoEntity.getIdHistorial());
         return vehiculoCommand;
     }
 }

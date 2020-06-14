@@ -20,8 +20,7 @@ public class VehiculoEntity {
     private Boolean estado;
     @Column(name = "tipoVehiculo")
     private String tipoVehiculo;
-    @OneToOne
-    @JoinColumn(name = "idHistorial")
-    private HistorialEntity Historial;
+    @Column(name = "idHistorial")
+    private Integer idHistorial;
 
 }

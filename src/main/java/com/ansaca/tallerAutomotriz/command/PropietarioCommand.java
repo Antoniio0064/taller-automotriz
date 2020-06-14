@@ -13,6 +13,6 @@ import org.springframework.stereotype.Component;
 public class PropietarioCommand {
     private Integer idPropietario;
     private double pago;
-    private PersonaEntity persona;
-    private VehiculoEntity vehiculo;
+    private Integer idPersona;
+    private String placa;
 }

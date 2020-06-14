@@ -15,12 +15,10 @@ public class PropietarioEntity {
     private Integer idPropietario;
     @Column(name = "pago")
     private double pago;
-    @ManyToOne
-    @JoinColumn(name = "idVehiculo")
-    private VehiculoEntity Vehiculo;
-    @ManyToOne
-    @JoinColumn(name = "idPersona")
-    private  PersonaEntity persona;
+    @Column(name = "placa")
+    private String placa;
+    @Column(name = "idPersona")
+    private  Integer idPersona;
 
 
 }

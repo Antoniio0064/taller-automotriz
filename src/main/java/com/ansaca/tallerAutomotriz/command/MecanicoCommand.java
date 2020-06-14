@@ -14,5 +14,5 @@ public class MecanicoCommand {
     private Integer idMecanico;
     private String especialidad;
     private Boolean disponibilidad;
-    private PersonaEntity persona;
+    private Integer idPersona;
 }

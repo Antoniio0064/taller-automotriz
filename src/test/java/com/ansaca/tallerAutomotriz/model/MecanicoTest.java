@@ -26,7 +26,7 @@ public class MecanicoTest {
         exception.expectMessage(Mecanico.NOMBRE_REQUERIDO);
         Mecanico mecanico = new Mecanico.MecanicoBuilder()
                 .setIdMecanico(1)
-                .setIdPersona(1)
+                .setIdPersona(1263547462)
                 .build();
     }
 
@@ -36,7 +36,7 @@ public class MecanicoTest {
         exception.expectMessage(Mecanico.NOMBRE_REQUERIDO);
         Mecanico mecanico = new Mecanico.MecanicoBuilder()
                 .setIdMecanico(1)
-                .setIdPersona(1)
+                .setIdPersona(1123234325)
                 .setNombre("")
                 .build();
     }
@@ -47,7 +47,7 @@ public class MecanicoTest {
         exception.expectMessage(Mecanico.APELLIDO_REQUERIDO);
         Mecanico mecanico = new Mecanico.MecanicoBuilder()
                 .setIdMecanico(1)
-                .setIdPersona(1)
+                .setIdPersona(1231231312)
                 .setNombre("juanito")
                 .build();
     }
@@ -58,7 +58,7 @@ public class MecanicoTest {
         exception.expectMessage(Mecanico.APELLIDO_REQUERIDO);
         Mecanico mecanico = new Mecanico.MecanicoBuilder()
                 .setIdMecanico(1)
-                .setIdPersona(1)
+                .setIdPersona(1343534534)
                 .setNombre("juanito")
                 .setApellidos("")
                 .build();
@@ -70,10 +70,10 @@ public class MecanicoTest {
         exception.expectMessage(Mecanico.TELEFONO_INVALIDO);
         Mecanico mecanico = new Mecanico.MecanicoBuilder()
                 .setIdMecanico(1)
-                .setIdPersona(1)
+                .setIdPersona(1454353453)
                 .setNombre("juanito")
                 .setApellidos("lonaranjas")
-                .setTelefono(123456)
+                .setTelefono((long) 123456)
                 .build();
     }
 
@@ -83,10 +83,10 @@ public class MecanicoTest {
         exception.expectMessage(Mecanico.CORREO_REQUERIDO);
         Mecanico mecanico = new Mecanico.MecanicoBuilder()
                 .setIdMecanico(1)
-                .setIdPersona(1)
+                .setIdPersona(344534534)
                 .setNombre("juanito")
                 .setApellidos("lonaranjas")
-                .setTelefono(1234567890)
+                .setTelefono((long) 1234567890)
                 .setCorreo("")
                 .build();
     }
@@ -97,10 +97,10 @@ public class MecanicoTest {
         exception.expectMessage(Mecanico.CORREO_REQUERIDO);
         Mecanico mecanico = new Mecanico.MecanicoBuilder()
                 .setIdMecanico(1)
-                .setIdPersona(1)
+                .setIdPersona(454354353)
                 .setNombre("juanito")
                 .setApellidos("lonaranjas")
-                .setTelefono(1234567890)
+                .setTelefono((long) 1234567890)
                 .build();
     }
 
@@ -110,10 +110,10 @@ public class MecanicoTest {
         exception.expectMessage(Mecanico.CORREO_FORMATO_INCORRECTO);
         Mecanico mecanico = new Mecanico.MecanicoBuilder()
                 .setIdMecanico(1)
-                .setIdPersona(1)
+                .setIdPersona(324534534)
                 .setNombre("juanito")
                 .setApellidos("lonaranjas")
-                .setTelefono(1234567890)
+                .setTelefono((long) 1234567890)
                 .setCorreo("juanito123.com")
                 .build();
     }
@@ -124,10 +124,10 @@ public class MecanicoTest {
         exception.expectMessage(Mecanico.DIRECCION_REQUERIDA);
         Mecanico mecanico = new Mecanico.MecanicoBuilder()
                 .setIdMecanico(1)
-                .setIdPersona(1)
+                .setIdPersona(534543534)
                 .setNombre("juanito")
                 .setApellidos("lonaranjas")
-                .setTelefono(1234567890)
+                .setTelefono((long) 1234567890)
                 .setCorreo("juanito123@hotmail.com")
                 .build();
     }
@@ -138,10 +138,10 @@ public class MecanicoTest {
         exception.expectMessage(Mecanico.DIRECCION_REQUERIDA);
         Mecanico mecanico = new Mecanico.MecanicoBuilder()
                 .setIdMecanico(1)
-                .setIdPersona(1)
+                .setIdPersona(35345345)
                 .setNombre("juanito")
                 .setApellidos("lonaranjas")
-                .setTelefono(1234567890)
+                .setTelefono((long) 34567890)
                 .setCorreo("juanito123@hotmail.com")
                 .setDireccion("")
                 .build();
@@ -153,10 +153,10 @@ public class MecanicoTest {
         exception.expectMessage(Mecanico.ESPECIALIDAD_REQUERIDA);
         Mecanico mecanico = new Mecanico.MecanicoBuilder()
                 .setIdMecanico(1)
-                .setIdPersona(1)
+                .setIdPersona(453453453)
                 .setNombre("juanito")
                 .setApellidos("lonaranjas")
-                .setTelefono(1234567890)
+                .setTelefono((long) 1234567890)
                 .setCorreo("juanito123@hotmail.com")
                 .setDireccion("vereda la aguelita")
                 .setEspecialidad("")
@@ -169,10 +169,10 @@ public class MecanicoTest {
         exception.expectMessage(Mecanico.ESPECIALIDAD_REQUERIDA);
         Mecanico mecanico = new Mecanico.MecanicoBuilder()
                 .setIdMecanico(1)
-                .setIdPersona(1)
+                .setIdPersona(1435345345)
                 .setNombre("juanito")
                 .setApellidos("lonaranjas")
-                .setTelefono(1234567890)
+                .setTelefono((long) 1234567890)
                 .setCorreo("juanito123@hotmail.com")
                 .setDireccion("vereda la aguelita")
                 .build();
@@ -184,10 +184,10 @@ public class MecanicoTest {
         exception.expectMessage(Mecanico.DISPONIBILIDAD_REQUERIDA);
         Mecanico mecanico = new Mecanico.MecanicoBuilder()
                 .setIdMecanico(1)
-                .setIdPersona(1)
+                .setIdPersona(345345345)
                 .setNombre("juanito")
                 .setApellidos("lonaranjas")
-                .setTelefono(1234567890)
+                .setTelefono((long) 1234567890)
                 .setCorreo("juanito123@hotmail.com")
                 .setDireccion("vereda la aguelita")
                 .setEspecialidad("motos de alto cilindraje")

@@ -1,12 +1,15 @@
 package com.ansaca.tallerAutomotriz.model;
 
 
+import io.swagger.models.auth.In;
+
 public abstract class Persona {
 
     private Integer idPersona;
+    private Long numeroIdentificacion;
     private String nombre;
     private String apellidos;
-    private Integer telefono;
+    private Long telefono;
     private String correo;
     private String direccion;
 
@@ -38,11 +41,11 @@ public abstract class Persona {
         this.apellidos = apellidos;
     }
 
-    public Integer getTelefono() {
+    public Long getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(Integer telefono) {
+    public void setTelefono(Long telefono) {
         this.telefono = telefono;
     }
 
@@ -60,6 +63,14 @@ public abstract class Persona {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+    public Long getNumeroIdentificacion() {
+        return numeroIdentificacion;
+    }
+
+    public void setNumeroIdentificacion(Long numeroIdentificacion) {
+        this.numeroIdentificacion = numeroIdentificacion;
     }
 }
 

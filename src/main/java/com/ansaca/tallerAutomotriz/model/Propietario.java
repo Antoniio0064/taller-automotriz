@@ -30,9 +30,10 @@ public class Propietario extends Persona {
 
         //Persona
         private Integer idPersona;
+        private Long numeroIdentificacion;
         private String nombre;
         private String apellidos;
-        private Integer telefono;
+        private Long telefono;
         private String correo;
         private String direccion;
 
@@ -42,7 +43,12 @@ public class Propietario extends Persona {
             return this;
         }
 
-        public PropietarioBuilder setPago(Integer pago) {
+        public PropietarioBuilder setNumeroIdentificacion(Long numeroIdentificacion){
+            this.numeroIdentificacion = numeroIdentificacion;
+            return this;
+        }
+
+        public PropietarioBuilder setPago(double pago) {
             this.pago = pago;
             return this;
         }
@@ -67,7 +73,7 @@ public class Propietario extends Persona {
             return this;
         }
 
-        public PropietarioBuilder setTelefono(Integer telefono) {
+        public PropietarioBuilder setTelefono(Long telefono) {
             this.telefono = telefono;
             return this;
         }
@@ -86,6 +92,7 @@ public class Propietario extends Persona {
             Propietario propietario = new Propietario();
             propietario.idPropietario = this.idPropietario;
             propietario.setIdPersona(this.idPersona);
+            propietario.setNumeroIdentificacion(this.numeroIdentificacion);
             Validator.validarNombreNulo(nombre, NOMBRE_REQUERIDO);
             Validator.validarNombreVacio(nombre, NOMBRE_REQUERIDO);
             propietario.setNombre(this.nombre);
@@ -110,5 +117,16 @@ public class Propietario extends Persona {
         }
     }
 
+    public Integer getIdPropietario() {
+        return idPropietario;
+    }
+
+    public double getPago() {
+        return pago;
+    }
+
+    public Vehiculo getVehiculo() {
+        return vehiculo;
+    }
 }
 

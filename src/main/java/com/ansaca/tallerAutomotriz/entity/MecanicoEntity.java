@@ -13,9 +13,8 @@ public class MecanicoEntity {
     @GeneratedValue
     @Column(name = "idMecanico")
     private Integer idMecanico;
-    @ManyToOne
-    @JoinColumn(name = "idPersona")
-    private  PersonaEntity persona;
+    @Column(name = "idPersona")
+    private Integer idPersona;
     @Column(name = "especialidad")
     private String especialidad;
     @Column(name = "disponibilidad")

@@ -35,7 +35,7 @@ public class Validator {
         }
     }
 
-    public static void validarTelefono(Integer telefono, String mensaje) throws BusinessException {
+    public static void validarTelefono(Long telefono, String mensaje) throws BusinessException {
         if(telefono.toString().length() != 10){
             throw new BusinessException(mensaje);
         }

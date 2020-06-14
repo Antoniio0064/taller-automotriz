@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PersonaRepository extends JpaRepository<PersonaEntity, Integer> {
 
+    PersonaEntity findByNumeroIdentificacion(Long numeroIdentificacion);
 }

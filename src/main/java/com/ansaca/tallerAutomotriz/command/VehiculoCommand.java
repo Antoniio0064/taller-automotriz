@@ -14,5 +14,5 @@ public class VehiculoCommand {
     private String placa;
     private Boolean estado;
     private String tipoVehiculo;
-    private HistorialEntity historial;
+    private Integer idHistorial;
 }

@@ -21,7 +21,7 @@ public class PropietarioTest {
         exception.expectMessage(Propietario.NOMBRE_REQUERIDO);
         Propietario propietario = new Propietario.PropietarioBuilder()
                 .setIdPropietario(1)
-                .setIdPersona(1)
+                .setIdPersona(1345345345)
                 .build();
     }
 
@@ -31,7 +31,7 @@ public class PropietarioTest {
         exception.expectMessage(Mecanico.NOMBRE_REQUERIDO);
         Propietario propietario = new Propietario.PropietarioBuilder()
                 .setIdPropietario(1)
-                .setIdPersona(1)
+                .setIdPersona(1345345345)
                 .setNombre("")
                 .build();
     }
@@ -42,7 +42,7 @@ public class PropietarioTest {
         exception.expectMessage(Propietario.APELLIDO_REQUERIDO);
         Propietario propietario = new Propietario.PropietarioBuilder()
                 .setIdPropietario(1)
-                .setIdPersona(1)
+                .setIdPersona(1345345345)
                 .setNombre("juanito")
                 .build();
     }
@@ -53,7 +53,7 @@ public class PropietarioTest {
         exception.expectMessage(Propietario.APELLIDO_REQUERIDO);
         Propietario propietario = new Propietario.PropietarioBuilder()
                 .setIdPropietario(1)
-                .setIdPersona(1)
+                .setIdPersona(1345345345)
                 .setNombre("juanito")
                 .setApellidos("")
                 .build();
@@ -65,10 +65,10 @@ public class PropietarioTest {
         exception.expectMessage(Propietario.TELEFONO_INVALIDO);
         Propietario propietario = new Propietario.PropietarioBuilder()
                 .setIdPropietario(1)
-                .setIdPersona(1)
+                .setIdPersona(1345345345)
                 .setNombre("juanito")
                 .setApellidos("lonaranjas")
-                .setTelefono(123456)
+                .setTelefono((long) 1234)
                 .build();
     }
 
@@ -78,10 +78,10 @@ public class PropietarioTest {
         exception.expectMessage(Propietario.CORREO_REQUERIDO);
         Propietario propietario = new Propietario.PropietarioBuilder()
                 .setIdPropietario(1)
-                .setIdPersona(1)
+                .setIdPersona(1345345345)
                 .setNombre("juanito")
                 .setApellidos("lonaranjas")
-                .setTelefono(1234567890)
+                .setTelefono((long) 1234567890)
                 .setCorreo("")
                 .build();
     }
@@ -92,10 +92,10 @@ public class PropietarioTest {
         exception.expectMessage(Propietario.CORREO_REQUERIDO);
         Propietario propietario = new Propietario.PropietarioBuilder()
                 .setIdPropietario(1)
-                .setIdPersona(1)
+                .setIdPersona(1345345345)
                 .setNombre("juanito")
                 .setApellidos("lonaranjas")
-                .setTelefono(1234567890)
+                .setTelefono((long) 1234567890)
                 .build();
     }
 
@@ -105,10 +105,10 @@ public class PropietarioTest {
         exception.expectMessage(Propietario.CORREO_FORMATO_INCORRECTO);
         Propietario propietario = new Propietario.PropietarioBuilder()
                 .setIdPropietario(1)
-                .setIdPersona(1)
+                .setIdPersona(1345345345)
                 .setNombre("juanito")
                 .setApellidos("lonaranjas")
-                .setTelefono(1234567890)
+                .setTelefono((long) 1234567890)
                 .setCorreo("juanito123.com")
                 .build();
     }
@@ -119,10 +119,10 @@ public class PropietarioTest {
         exception.expectMessage(Propietario.DIRECCION_REQUERIDA);
         Propietario propietario = new Propietario.PropietarioBuilder()
                 .setIdPropietario(1)
-                .setIdPersona(1)
+                .setIdPersona(1345345345)
                 .setNombre("juanito")
                 .setApellidos("lonaranjas")
-                .setTelefono(1234567890)
+                .setTelefono((long) 1234567890)
                 .setCorreo("juanito123@hotmail.com")
                 .build();
     }
@@ -133,10 +133,10 @@ public class PropietarioTest {
         exception.expectMessage(Propietario.DIRECCION_REQUERIDA);
         Propietario propietario = new Propietario.PropietarioBuilder()
                 .setIdPropietario(1)
-                .setIdPersona(1)
+                .setIdPersona(1345345345)
                 .setNombre("juanito")
                 .setApellidos("lonaranjas")
-                .setTelefono(1234567890)
+                .setTelefono((long) 1234567890)
                 .setCorreo("juanito123@hotmail.com")
                 .setDireccion("")
                 .build();
@@ -148,10 +148,10 @@ public class PropietarioTest {
         exception.expectMessage(Propietario.PAGO_NEGATIVO);
         Propietario propietario = new Propietario.PropietarioBuilder()
                 .setIdPropietario(1)
-                .setIdPersona(1)
+                .setIdPersona(1345345345)
                 .setNombre("juanito")
                 .setApellidos("lonaranjas")
-                .setTelefono(1234567890)
+                .setTelefono((long) 1234567890)
                 .setCorreo("juanito123@hotmail.com")
                 .setDireccion("sjhjhdjdh")
                 .setPago(-123)
@@ -164,10 +164,10 @@ public class PropietarioTest {
         exception.expectMessage(Propietario.PAGO_VALOR_CERO);
         Propietario propietario = new Propietario.PropietarioBuilder()
                 .setIdPropietario(1)
-                .setIdPersona(1)
+                .setIdPersona(1345345345)
                 .setNombre("juanito")
                 .setApellidos("lonaranjas")
-                .setTelefono(1234567890)
+                .setTelefono((long) 1234567890)
                 .setCorreo("juanito123@hotmail.com")
                 .setDireccion("sjhjhdjdh")
                 .setPago(0)

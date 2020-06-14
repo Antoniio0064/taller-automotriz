@@ -29,14 +29,20 @@ public class Mecanico extends Persona {
 
         //Persona
         private Integer idPersona;
+        private Long numeroIdentificacion;
         private String nombre;
         private String apellidos;
-        private Integer telefono;
+        private Long telefono;
         private String correo;
         private String direccion;
 
         public MecanicoBuilder setIdPersona(Integer idPersona) {
             this.idPersona = idPersona;
+            return this;
+        }
+
+        public MecanicoBuilder setNumeroIdentificacion(Long numeroIdentificacion) {
+            this.numeroIdentificacion = numeroIdentificacion;
             return this;
         }
 
@@ -50,7 +56,7 @@ public class Mecanico extends Persona {
             return this;
         }
 
-        public MecanicoBuilder setTelefono(Integer telefono) {
+        public MecanicoBuilder setTelefono(Long telefono) {
             this.telefono = telefono;
             return this;
         }
@@ -85,6 +91,7 @@ public class Mecanico extends Persona {
             Mecanico mecanico = new Mecanico();
             mecanico.idMecanico = this.idMecanico;
             mecanico.setIdPersona(this.idPersona);
+            mecanico.setNumeroIdentificacion(this.numeroIdentificacion);
             Validator.validarNombreNulo(nombre, NOMBRE_REQUERIDO);
             Validator.validarNombreVacio(nombre, NOMBRE_REQUERIDO);
             mecanico.setNombre(this.nombre);
@@ -117,5 +124,15 @@ public class Mecanico extends Persona {
             disponibilidad = true;
     }
 
+    public Integer getIdMecanico() {
+        return idMecanico;
+    }
 
+    public String getEspecialidad() {
+        return especialidad;
+    }
+
+    public Boolean getDisponibilidad() {
+        return disponibilidad;
+    }
 }

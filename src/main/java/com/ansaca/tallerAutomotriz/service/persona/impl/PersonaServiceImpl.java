@@ -16,4 +16,9 @@ public class PersonaServiceImpl implements PersonaService {
     public PersonaEntity findById(Integer idPersona) {
         return personaRepository.findById(idPersona).orElse(null);
     }
+
+    @Override
+    public PersonaEntity findByNumeroIdentificacion(Long numeroIdentificacion) {
+        return personaRepository.findByNumeroIdentificacion(numeroIdentificacion);
+    }
 }

@@ -63,10 +63,28 @@ public class Vehiculo {
             Validator.validarTipoVehiculoNulo(tipoVehiculo, TIPO_VEHICULO_REQUERIDO);
             Validator.validarTipoVehiculoVacio(tipoVehiculo, TIPO_VEHICULO_REQUERIDO);
             vehiculo.tipoVehiculo = this.tipoVehiculo;
-            Validator.validarObjetoNulo(historial, HISTORIAL_NO_CONFIGURADO);
             vehiculo.historial = this.historial;
             return vehiculo;
         }
     }
 
+    public Integer getIdVehiculo() {
+        return idVehiculo;
+    }
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public Boolean getEstado() {
+        return estado;
+    }
+
+    public String getTipoVehiculo() {
+        return tipoVehiculo;
+    }
+
+    public Historial getHistorial() {
+        return historial;
+    }
 }
