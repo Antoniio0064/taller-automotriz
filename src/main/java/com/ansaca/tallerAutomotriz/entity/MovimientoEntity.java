@@ -26,4 +26,5 @@ public class MovimientoEntity {
     private boolean finalizado;
     @Column(name = "idRepuesto")
     private Integer idRepuesto;
+
 }

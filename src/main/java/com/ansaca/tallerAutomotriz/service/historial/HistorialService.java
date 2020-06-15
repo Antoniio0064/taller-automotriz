@@ -12,4 +12,6 @@ public interface HistorialService {
     HistorialEntity findById(Integer idHistorial);
 
     List<Movimiento> consultarHistorialVehiculo(String placa);
+
+    void save(HistorialEntity historialEntity);
 }

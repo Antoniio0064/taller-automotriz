@@ -49,6 +49,11 @@ public class HistorialServiceImpl implements HistorialService {
         return  historialFabrica.entityToModel(listaMovimientosEntity);
     }
 
+    @Override
+    public void save(HistorialEntity historialEntity) {
+        historialRepository.save(historialEntity);
+    }
+
     private void validarExistenciaVehiculo(String placa) {
         if(vehiculoService.findByPlaca(placa) == null)
             throw new VehiculoNoExisteException(VEHICULO_NO_ENCONTRADO);

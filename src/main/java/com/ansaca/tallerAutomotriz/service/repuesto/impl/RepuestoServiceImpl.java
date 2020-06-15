@@ -3,6 +3,9 @@ package com.ansaca.tallerAutomotriz.service.repuesto.impl;
 import com.ansaca.tallerAutomotriz.command.RepuestoCommand;
 import com.ansaca.tallerAutomotriz.entity.RepuestoEntity;
 import com.ansaca.tallerAutomotriz.fabrica.RepuestoFabrica;
+import com.ansaca.tallerAutomotriz.model.Repuesto;
+import com.ansaca.tallerAutomotriz.model.businessexception.BusinessException;
+import com.ansaca.tallerAutomotriz.model.businessexception.RepuestoNoExisteException;
 import com.ansaca.tallerAutomotriz.model.businessexception.RepuestoYaExisteException;
 import com.ansaca.tallerAutomotriz.repository.RepuestoRepository;
 import com.ansaca.tallerAutomotriz.service.repuesto.RepuestoService;
@@ -17,6 +20,7 @@ public class RepuestoServiceImpl implements RepuestoService {
     private static final String REPUESTO_YA_EXISTE = "El repuesto ya se encuentra en el sistema deberia actualizar su cantidad" +
             " y no crear otro igual";
     private static final String REPUESTO_CREADO_EXITOSAMENTE = "El Repuesto se ha registrado exitosamente";
+    private static final String REPUESTO_NO_EXISTE = "El repuesto que desea consultar no existe";
 
     @Autowired
     private RepuestoRepository repuestoRepository;
@@ -41,6 +45,18 @@ public class RepuestoServiceImpl implements RepuestoService {
         RepuestoEntity repuestoEntity = commandToEntity(repuestoCommand);
         repuestoRepository.save(repuestoEntity);
         return REPUESTO_CREADO_EXITOSAMENTE;
+    }
+
+    @Override
+    public Repuesto consultarInformacionRepuesto(Integer idRepuesto) throws BusinessException {
+        RepuestoEntity repuestoEntity = repuestoRepository.findById(idRepuesto).orElse(null);
+        validarExistenciaRepuesto(repuestoEntity);
+        return repuestoFabrica.entityToModel(repuestoEntity);
+    }
+
+    private void validarExistenciaRepuesto(RepuestoEntity repuestoEntity) {
+        if(repuestoEntity == null)
+            throw new RepuestoNoExisteException(REPUESTO_NO_EXISTE);
     }
 
     private void validarNoExistenciaRepuesto(RepuestoCommand repuestoCommand) {

@@ -3,6 +3,7 @@ package com.ansaca.tallerAutomotriz.controller;
 import com.ansaca.tallerAutomotriz.command.RepuestoCommand;
 import com.ansaca.tallerAutomotriz.entity.RepuestoEntity;
 import com.ansaca.tallerAutomotriz.model.Repuesto;
+import com.ansaca.tallerAutomotriz.model.businessexception.BusinessException;
 import com.ansaca.tallerAutomotriz.service.repuesto.RepuestoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,5 +25,10 @@ public class RepuestoController {
     @PostMapping("/repuesto")
     public String registrarRepuesto(@RequestBody RepuestoCommand repuestoCommand){
         return repuestoService.registrarRepuesto(repuestoCommand);
+    }
+
+    @GetMapping("/{idRepuesto}/repuesto")
+    public Repuesto consultarInformacionRepuesto(@PathVariable Integer idRepuesto) throws BusinessException {
+        return repuestoService.consultarInformacionRepuesto(idRepuesto);
     }
 }

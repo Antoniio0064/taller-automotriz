@@ -2,6 +2,8 @@ package com.ansaca.tallerAutomotriz.fabrica;
 
 import com.ansaca.tallerAutomotriz.command.RepuestoCommand;
 import com.ansaca.tallerAutomotriz.entity.RepuestoEntity;
+import com.ansaca.tallerAutomotriz.model.Repuesto;
+import com.ansaca.tallerAutomotriz.model.businessexception.BusinessException;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -24,5 +26,14 @@ public class RepuestoFabrica {
         repuestoCommand.setCantidad(repuestoEntity.getCantidad());
         repuestoCommand.setValor(repuestoEntity.getValor());
         return repuestoCommand;
+    }
+
+    public Repuesto entityToModel(RepuestoEntity repuestoEntity) throws BusinessException {
+        Repuesto repuesto = new Repuesto.RepuestoBuilder()
+                .setIdRepuesto(repuestoEntity.getIdRepuesto()).setNombre(repuestoEntity.getNombre())
+                .setDescripcion(repuestoEntity.getDescripcion()).setValor(repuestoEntity.getValor())
+                .setCantidad(repuestoEntity.getCantidad()).build();
+
+        return repuesto;
     }
 }

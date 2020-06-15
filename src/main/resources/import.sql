@@ -10,9 +10,9 @@ INSERT INTO PERSONA(id_persona, numero_identificacion,  apellidos, correo, direc
 INSERT INTO PERSONA(id_persona, numero_identificacion,  apellidos, correo, direccion, nombre, telefono) values (4, 4019374628, 'Galeano Amaya', 'GaliAma@gmail.com', 'cll #7', 'Julian', 1234567890)
 INSERT INTO PERSONA(id_persona, numero_identificacion,  apellidos, correo, direccion, nombre, telefono) values (5, 5129473694, 'Pinilla Forero', 'espini@gmail.com', 'cll #8', 'Jonathan', 1234567890)
 INSERT INTO PERSONA(id_persona, numero_identificacion,  apellidos, correo, direccion, nombre, telefono) values (6, 6018375643, 'Ramirez Amaya', 'ramiama@gmail.com', 'cll #9', 'luis', 1234567890)
-INSERT INTO HISTORIAL(id_historial) values (1)
-INSERT INTO HISTORIAL(id_historial) values (2)
-INSERT INTO VEHICULO(id_vehiculo,estado,placa,tipo_vehiculo,id_historial) values (1,true, 'LOP56C', 'Motocicleta', 1)
-INSERT INTO VEHICULO(id_vehiculo,estado,placa,tipo_vehiculo,id_historial) values (2,true, 'XML902', 'Automovil', 2)
+--INSERT INTO HISTORIAL(id_historial) values (1)
+--INSERT INTO HISTORIAL(id_historial) values (2)
+--INSERT INTO VEHICULO(id_vehiculo,estado,placa,tipo_vehiculo,id_historial) values (1,true, 'LOP56C', 'Motocicleta', 1)
+--INSERT INTO VEHICULO(id_vehiculo,estado,placa,tipo_vehiculo,id_historial) values (2,true, 'XML902', 'Automovil', 2)
 
 

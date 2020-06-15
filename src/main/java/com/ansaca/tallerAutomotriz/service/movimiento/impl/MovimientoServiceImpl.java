@@ -86,9 +86,13 @@ public class MovimientoServiceImpl implements MovimientoService {
     }
 
     private void validarVehiculoEnReparacion(String placa) {
-        if(movimientoRepository.findByPlaca(placa) != null
-                && !movimientoRepository.findByPlaca(placa).isFinalizado()){
-            throw new VehiculoEnReparacionException(VEHICULO_EN_REPARACION);
+        List<MovimientoEntity> listaMovimientoEntity = movimientoRepository.findAllByPlaca(placa);
+
+        if(listaMovimientoEntity != null) {
+            for (MovimientoEntity me : listaMovimientoEntity) {
+                if(!me.isFinalizado())
+                    throw new VehiculoEnReparacionException(VEHICULO_EN_REPARACION);
+            }
         }
     }
 
