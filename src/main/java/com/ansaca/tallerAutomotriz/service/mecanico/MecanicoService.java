@@ -16,5 +16,9 @@ public interface MecanicoService {
 
     String registrarMecanico(MecanicoCommand mecanicoCommand);
 
+    String eliminarMecanico(Integer id);
+
+    String actualizarMecanico(MecanicoCommand mecanicoCommand);
+
     Mecanico consultarInformacionMecanico(Integer idPersona) throws BusinessException;
 }

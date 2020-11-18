@@ -48,6 +48,27 @@ public class RepuestoServiceImpl implements RepuestoService {
     }
 
     @Override
+    public String eliminarRepuesto(Integer id) {
+        if(repuestoRepository.findById(id) != null){
+            repuestoRepository.deleteById(id);
+            return "Eliminado Exitosamente";
+        }
+        return "El mecanico que intenta eliminar no existe!";
+    }
+
+    @Override
+    public String actualizarRepuesto(RepuestoCommand repuestoCommand) {
+
+        RepuestoEntity repuestoEntity = findById(repuestoCommand.getIdRepuesto());
+        repuestoEntity.setNombre(repuestoCommand.getNombre());
+        repuestoEntity.setValor(repuestoCommand.getValor());
+        repuestoEntity.setDescripcion(repuestoCommand.getDescripcion());
+        repuestoEntity.setCantidad(repuestoCommand.getCantidad());
+        repuestoRepository.save(repuestoEntity);
+        return "Actualizacion Exitosa";
+    }
+
+    @Override
     public Repuesto consultarInformacionRepuesto(Integer idRepuesto) throws BusinessException {
         RepuestoEntity repuestoEntity = repuestoRepository.findById(idRepuesto).orElse(null);
         validarExistenciaRepuesto(repuestoEntity);

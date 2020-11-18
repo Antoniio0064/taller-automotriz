@@ -2,27 +2,20 @@ package com.ansaca.tallerAutomotriz.service.mecanico.impl;
 
 import com.ansaca.tallerAutomotriz.command.MecanicoCommand;
 import com.ansaca.tallerAutomotriz.command.MovimientoCommand;
-import com.ansaca.tallerAutomotriz.command.PersonaCommand;
 import com.ansaca.tallerAutomotriz.entity.MecanicoEntity;
-import com.ansaca.tallerAutomotriz.entity.MovimientoEntity;
 import com.ansaca.tallerAutomotriz.entity.PersonaEntity;
-import com.ansaca.tallerAutomotriz.entity.VehiculoEntity;
 import com.ansaca.tallerAutomotriz.fabrica.MecanicoFabrica;
 import com.ansaca.tallerAutomotriz.model.Mecanico;
 import com.ansaca.tallerAutomotriz.model.businessexception.*;
 import com.ansaca.tallerAutomotriz.repository.MecanicoRepository;
 import com.ansaca.tallerAutomotriz.repository.MovimientoRepository;
-import com.ansaca.tallerAutomotriz.repository.PersonaRepository;
 import com.ansaca.tallerAutomotriz.service.mecanico.MecanicoService;
 import com.ansaca.tallerAutomotriz.service.movimiento.MovimientoService;
 import com.ansaca.tallerAutomotriz.service.persona.PersonaService;
 import com.ansaca.tallerAutomotriz.service.vehiculo.VehiculoService;
-import com.sun.xml.bind.v2.TODO;
-import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.*;
 import java.util.List;
 
 @Service
@@ -33,6 +26,7 @@ public class MecanicoServiceImpl implements MecanicoService {
             "la información o registre la persona antes de darle un rol";
     private static final String MECANICO_YA_REGISTRADO = "El mecanico que intenta crear ya tiene ese rol en el sistema";
     private static final String MECANICO_NO_EXISTE = "El mecanico que intenta consultar no existe";
+    private static final String ELIMINADO_EXITOSAMENTE = "Eliminacion exitosa";
 
     @Autowired
     private MecanicoRepository mecanicoRepository;
@@ -74,6 +68,27 @@ public class MecanicoServiceImpl implements MecanicoService {
         mecanicoEntity.setIdPersona(mecanicoCommand.getIdPersona());
         mecanicoRepository.save(mecanicoEntity);
         return MECANICO_CREADO_EXITOSAMENTE;
+    }
+
+    @Override
+    public String eliminarMecanico(Integer id) {
+        if(mecanicoRepository.findByIdPersona(id) != null){
+            mecanicoRepository.deleteById(id);
+            return ELIMINADO_EXITOSAMENTE;
+        }
+        return "El mecanico que intenta eliminar no existe!";
+    }
+
+    @Override
+    public String actualizarMecanico(MecanicoCommand mecanicoCommand) {
+        validarExistenciaPersona(mecanicoCommand.getIdPersona());
+
+        MecanicoEntity mecanicoEntity = mecanicoRepository.findByIdMecanico(mecanicoCommand.getIdMecanico());
+        mecanicoEntity.setEspecialidad(mecanicoCommand.getEspecialidad());
+        mecanicoEntity.setDisponibilidad(mecanicoCommand.getDisponibilidad());
+        mecanicoEntity.setIdPersona(mecanicoCommand.getIdPersona());
+        mecanicoRepository.save(mecanicoEntity);
+        return "Actualizacion Exitosa";
     }
 
     @Override

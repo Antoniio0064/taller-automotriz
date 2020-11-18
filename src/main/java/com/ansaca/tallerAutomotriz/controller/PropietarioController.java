@@ -31,4 +31,14 @@ public class PropietarioController {
     public Propietario consultarInformacionPropietario(@PathVariable String placa) throws BusinessException {
         return propietarioService.consultarInformacionPropietario(placa);
     }
+
+    @DeleteMapping("/{idPropietario}/propietario")
+    public String eliminarPropietario(@PathVariable Integer idPropietario){
+        return propietarioService.eliminarPropietario(idPropietario);
+    }
+
+    @PutMapping("/propietario/update")
+    public String actualizarPropietario(@RequestBody PropietarioCommand propietarioCommand){
+        return propietarioService.actualizarPropietario(propietarioCommand);
+    }
 }

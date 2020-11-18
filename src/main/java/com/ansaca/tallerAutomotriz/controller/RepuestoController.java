@@ -1,5 +1,6 @@
 package com.ansaca.tallerAutomotriz.controller;
 
+import com.ansaca.tallerAutomotriz.command.MecanicoCommand;
 import com.ansaca.tallerAutomotriz.command.RepuestoCommand;
 import com.ansaca.tallerAutomotriz.entity.RepuestoEntity;
 import com.ansaca.tallerAutomotriz.model.Repuesto;
@@ -30,5 +31,15 @@ public class RepuestoController {
     @GetMapping("/{idRepuesto}/repuesto")
     public Repuesto consultarInformacionRepuesto(@PathVariable Integer idRepuesto) throws BusinessException {
         return repuestoService.consultarInformacionRepuesto(idRepuesto);
+    }
+
+    @DeleteMapping("/{idRepuesto}/repuesto")
+    public String eliminarRepuesto(@PathVariable Integer idRepuesto){
+        return repuestoService.eliminarRepuesto(idRepuesto);
+    }
+
+    @PutMapping("/repuesto/update")
+    public String actualizarRepuesto(@RequestBody RepuestoCommand repuestoCommand){
+        return repuestoService.actualizarRepuesto(repuestoCommand);
     }
 }

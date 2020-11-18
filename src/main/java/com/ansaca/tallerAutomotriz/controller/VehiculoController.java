@@ -1,5 +1,6 @@
 package com.ansaca.tallerAutomotriz.controller;
 
+import com.ansaca.tallerAutomotriz.command.MecanicoCommand;
 import com.ansaca.tallerAutomotriz.command.VehiculoCommand;
 import com.ansaca.tallerAutomotriz.entity.VehiculoEntity;
 import com.ansaca.tallerAutomotriz.model.Vehiculo;
@@ -29,5 +30,15 @@ public class VehiculoController {
     @GetMapping("/{placa}/vehiculo")
     public Vehiculo consultarInformacionVehiculo(@PathVariable String placa) throws BusinessException {
         return vehiculoService.consultarInformacionVehiculo(placa);
+    }
+
+    @DeleteMapping("/{idVehiculo}/vehiculo")
+    public String eliminarVehiculo(@PathVariable Integer idVehiculo){
+        return vehiculoService.eliminarVehiculo(idVehiculo);
+    }
+
+    @PutMapping("/vehiculo/update")
+    public String actualizarVehiculo(@RequestBody VehiculoCommand vehiculoCommand){
+        return vehiculoService.actualizarVehiculo(vehiculoCommand);
     }
 }

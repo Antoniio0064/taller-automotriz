@@ -3,6 +3,7 @@ package com.ansaca.tallerAutomotriz.service.propietario.impl;
 import com.ansaca.tallerAutomotriz.command.PropietarioCommand;
 import com.ansaca.tallerAutomotriz.entity.*;
 import com.ansaca.tallerAutomotriz.fabrica.PropietarioFabrica;
+import com.ansaca.tallerAutomotriz.model.Movimiento;
 import com.ansaca.tallerAutomotriz.model.Propietario;
 import com.ansaca.tallerAutomotriz.model.businessexception.*;
 import com.ansaca.tallerAutomotriz.repository.PropietarioRepository;
@@ -61,6 +62,27 @@ public class PropietarioServiceImpl implements PropietarioService {
         return PROPIETARIO_CREADO_EXITOSAMENTE;
     }
 
+    @Override
+    public String eliminarPropietario(Integer id) {
+        if(propietarioRepository.findByIdPersona(id) != null){
+            propietarioRepository.deleteById(id);
+            return "Elininado exitosamente";
+        }
+        return "El mecanico que intenta eliminar no existe!";
+    }
+
+    @Override
+    public String actualizarPropietario(PropietarioCommand propietarioCommand) {
+        validarExistenciaPersona(propietarioCommand.getIdPersona());
+
+        PropietarioEntity propietarioEntity = propietarioRepository.findByIdPersona(propietarioCommand.getIdPersona());
+        propietarioEntity.setPago(propietarioCommand.getPago());
+        propietarioEntity.setIdPersona(propietarioCommand.getIdPersona());
+        propietarioEntity.setPlaca(propietarioCommand.getPlaca());
+        propietarioRepository.save(propietarioEntity);
+        return "Actualizacion Exitosa";
+    }
+
     private void validarVehiculoConDueño(String placa) {
         PropietarioEntity propietarioEntity = propietarioRepository.findByPlaca(placa);
         if(propietarioEntity != null)
@@ -75,7 +97,8 @@ public class PropietarioServiceImpl implements PropietarioService {
         PersonaEntity personaEntity = personaService.findById(propietarioEntity.getIdPersona());
         VehiculoEntity vehiculoEntity = vehiculoService.findByPlaca(placa);
         List<MovimientoEntity> listaMovimientosEntity = movimientoService.findAllByPlaca(placa);
-        return propietarioFabrica.entityToModel(propietarioEntity, personaEntity, vehiculoEntity, listaMovimientosEntity);
+        List<Movimiento> movimientos = movimientoService.entityToModel(listaMovimientosEntity);
+        return propietarioFabrica.entityToModel(propietarioEntity, personaEntity, vehiculoEntity, movimientos);
     }
 
     private void validarExistenciaPropietario(PropietarioEntity propietarioEntity) {

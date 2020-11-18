@@ -32,4 +32,14 @@ public class MecanicoController {
     public Mecanico consultarInformacionMecanico(@PathVariable Integer idMecanico) throws BusinessException {
         return mecanicoService.consultarInformacionMecanico(idMecanico);
     }
+
+    @DeleteMapping("/{idMecanico}/mecanico")
+    public String eliminarMecanico(@PathVariable Integer idMecanico){
+        return mecanicoService.eliminarMecanico(idMecanico);
+    }
+
+    @PutMapping("/mecanico/update")
+    public String actualizarMecanico(@RequestBody MecanicoCommand mecanicoCommand){
+        return mecanicoService.actualizarMecanico(mecanicoCommand);
+    }
 }

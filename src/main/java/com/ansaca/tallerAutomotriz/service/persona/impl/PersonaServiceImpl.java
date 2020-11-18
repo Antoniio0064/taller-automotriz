@@ -1,5 +1,6 @@
 package com.ansaca.tallerAutomotriz.service.persona.impl;
 
+import com.ansaca.tallerAutomotriz.command.PersonaCommand;
 import com.ansaca.tallerAutomotriz.entity.PersonaEntity;
 import com.ansaca.tallerAutomotriz.repository.PersonaRepository;
 import com.ansaca.tallerAutomotriz.service.persona.PersonaService;
@@ -15,6 +16,16 @@ public class PersonaServiceImpl implements PersonaService {
     @Override
     public PersonaEntity findById(Integer idPersona) {
         return personaRepository.findById(idPersona).orElse(null);
+    }
+
+    @Override
+    public String eliminarPersona(Integer id) {
+        return null;
+    }
+
+    @Override
+    public String actualizarPersona(PersonaCommand personaCommand) {
+        return null;
     }
 
     @Override

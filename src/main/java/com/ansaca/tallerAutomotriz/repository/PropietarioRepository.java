@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PropietarioRepository extends JpaRepository<PropietarioEntity, Integer> {
     PropietarioEntity findByPlaca(String placa);
+
+    PropietarioEntity findByIdPersona(Integer id);
 }

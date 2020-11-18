@@ -1,5 +1,6 @@
 package com.ansaca.tallerAutomotriz.service.vehiculo;
 
+import com.ansaca.tallerAutomotriz.command.MecanicoCommand;
 import com.ansaca.tallerAutomotriz.command.VehiculoCommand;
 import com.ansaca.tallerAutomotriz.entity.VehiculoEntity;
 import com.ansaca.tallerAutomotriz.model.Vehiculo;
@@ -13,6 +14,10 @@ public interface VehiculoService {
     VehiculoEntity findByPlaca(String placa);
 
     String registrarVehiculo(VehiculoCommand vehiculoCommand);
+
+    String eliminarVehiculo(Integer id);
+
+    String actualizarVehiculo(VehiculoCommand vehiculoCommand);
 
     Vehiculo consultarInformacionVehiculo(String placa) throws BusinessException;
 }

@@ -16,4 +16,10 @@ public interface MovimientoService {
     Movimiento registrarMovimientoFinalizado(String placa) throws BusinessException;
 
     List<MovimientoEntity> findAllByPlaca(String placa);
+
+    String eliminarMovimiento(Integer id);
+
+    String actualizarMovimiento(MovimientoCommand movimientoCommand);
+
+    List<Movimiento> entityToModel(List<MovimientoEntity> listaMovimientosEntity);
 }

@@ -2,6 +2,7 @@ package com.ansaca.tallerAutomotriz.service.movimiento.impl;
 
 import com.ansaca.tallerAutomotriz.command.MecanicoCommand;
 import com.ansaca.tallerAutomotriz.command.MovimientoCommand;
+import com.ansaca.tallerAutomotriz.entity.MecanicoEntity;
 import com.ansaca.tallerAutomotriz.entity.MovimientoEntity;
 import com.ansaca.tallerAutomotriz.entity.RepuestoEntity;
 import com.ansaca.tallerAutomotriz.fabrica.MovimientoFabrica;
@@ -83,6 +84,30 @@ public class MovimientoServiceImpl implements MovimientoService {
     @Override
     public List<MovimientoEntity> findAllByPlaca(String placa) {
         return movimientoRepository.findAllByPlaca(placa);
+    }
+
+    @Override
+    public String eliminarMovimiento(Integer id) {
+        if(movimientoRepository.findById(id) != null){
+            movimientoRepository.deleteById(id);
+            return "Eliminado Exitosamente";
+        }
+        return "El mecanico que intenta eliminar no existe!";
+    }
+
+    @Override
+    public String actualizarMovimiento(MovimientoCommand movimientoCommand) {
+
+        MovimientoEntity movimientoEntity = movimientoRepository.findByPlaca(movimientoCommand.getPlaca());
+        movimientoEntity.setIdRepuesto(movimientoCommand.getIdRepuesto());
+        movimientoEntity.setDetalleMovimiento(movimientoCommand.getDetalleMovimiento());
+        movimientoRepository.save(movimientoEntity);
+        return "Actualizacion Exitosa";
+    }
+
+    @Override
+    public List<Movimiento> entityToModel(List<MovimientoEntity> listaMovimientosEntity) {
+        return movimientoFabrica.entityToModel(listaMovimientosEntity);
     }
 
     private void validarVehiculoEnReparacion(String placa) {

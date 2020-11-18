@@ -1,5 +1,6 @@
 package com.ansaca.tallerAutomotriz.controller;
 
+import com.ansaca.tallerAutomotriz.command.MecanicoCommand;
 import com.ansaca.tallerAutomotriz.command.MovimientoCommand;
 import com.ansaca.tallerAutomotriz.entity.MovimientoEntity;
 import com.ansaca.tallerAutomotriz.model.Movimiento;
@@ -28,6 +29,16 @@ public class MovimientoController {
     @GetMapping("/{placa}/movimiento")
     public Movimiento registrarMovimientoFinalizado(@PathVariable String placa) throws BusinessException {
         return movimientoService.registrarMovimientoFinalizado(placa);
+    }
+
+    @DeleteMapping("/{idMovimiento}/movimiento")
+    public String eliminarMovimiento(@PathVariable Integer idMovimiento){
+        return movimientoService.eliminarMovimiento(idMovimiento);
+    }
+
+    @PutMapping("/movimiento/update")
+    public String actualizarMovimiento(@RequestBody MovimientoCommand movimientoCommand){
+        return movimientoService.actualizarMovimiento(movimientoCommand);
     }
 
 }

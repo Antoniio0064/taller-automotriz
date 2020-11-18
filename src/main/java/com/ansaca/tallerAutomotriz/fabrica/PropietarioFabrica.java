@@ -5,10 +5,7 @@ import com.ansaca.tallerAutomotriz.entity.MovimientoEntity;
 import com.ansaca.tallerAutomotriz.entity.PersonaEntity;
 import com.ansaca.tallerAutomotriz.entity.PropietarioEntity;
 import com.ansaca.tallerAutomotriz.entity.VehiculoEntity;
-import com.ansaca.tallerAutomotriz.model.Historial;
-import com.ansaca.tallerAutomotriz.model.Mecanico;
-import com.ansaca.tallerAutomotriz.model.Propietario;
-import com.ansaca.tallerAutomotriz.model.Vehiculo;
+import com.ansaca.tallerAutomotriz.model.*;
 import com.ansaca.tallerAutomotriz.model.businessexception.BusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -19,8 +16,6 @@ import java.util.List;
 @Component
 public class PropietarioFabrica {
 
-    @Autowired
-    public HistorialFabrica historialFabrica;
 
     public List<PropietarioCommand> entityToCommand (List<PropietarioEntity> listaPropietarioEntity){
         List<PropietarioCommand> listaPropietarioCommand = new ArrayList<>();
@@ -39,14 +34,11 @@ public class PropietarioFabrica {
 
     public Propietario entityToModel(PropietarioEntity propietarioEntity,
                                      PersonaEntity personaEntity, VehiculoEntity vehiculoEntity,
-                                     List<MovimientoEntity> listaMovimientosEntity) throws BusinessException {
-
-        Historial historial = new Historial.HistorialBuilder().setIdHistorial(vehiculoEntity.getIdHistorial())
-                .setMovimientos(historialFabrica.entityToModel(listaMovimientosEntity)).build();
+                                     List<Movimiento> movimientos) throws BusinessException {
 
         Vehiculo vehiculo = new Vehiculo.VehiculoBuilder().setPlaca(vehiculoEntity.getPlaca())
                 .setIdVehiculo(vehiculoEntity.getIdVehiculo()).setTipoVehiculo(vehiculoEntity.getTipoVehiculo())
-                .setEstado(vehiculoEntity.getEstado()).setHistorial(historial).build();
+                .setEstado(vehiculoEntity.getEstado()).setMovimientos(movimientos).build();
 
         Propietario propietario = new Propietario.PropietarioBuilder()
                 .setIdPersona(personaEntity.getIdPersona()).setNumeroIdentificacion(personaEntity.getNumeroIdentificacion())

@@ -1,18 +1,16 @@
 package com.ansaca.tallerAutomotriz.service.vehiculo.impl;
 
+import com.ansaca.tallerAutomotriz.command.MecanicoCommand;
 import com.ansaca.tallerAutomotriz.command.VehiculoCommand;
-import com.ansaca.tallerAutomotriz.entity.HistorialEntity;
 import com.ansaca.tallerAutomotriz.entity.MovimientoEntity;
 import com.ansaca.tallerAutomotriz.entity.VehiculoEntity;
 import com.ansaca.tallerAutomotriz.fabrica.VehiculoFabrica;
-import com.ansaca.tallerAutomotriz.model.Historial;
+import com.ansaca.tallerAutomotriz.model.Movimiento;
 import com.ansaca.tallerAutomotriz.model.Vehiculo;
 import com.ansaca.tallerAutomotriz.model.businessexception.BusinessException;
-import com.ansaca.tallerAutomotriz.model.businessexception.HistorialNoExisteException;
 import com.ansaca.tallerAutomotriz.model.businessexception.VehiculoNoExisteException;
 import com.ansaca.tallerAutomotriz.model.businessexception.VehiculoYaExisteException;
 import com.ansaca.tallerAutomotriz.repository.VehiculoRepository;
-import com.ansaca.tallerAutomotriz.service.historial.HistorialService;
 import com.ansaca.tallerAutomotriz.service.movimiento.MovimientoService;
 import com.ansaca.tallerAutomotriz.service.vehiculo.VehiculoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,9 +30,6 @@ public class VehiculoServiceImpl implements VehiculoService {
 
     @Autowired
     private VehiculoFabrica vehiculoFabrica;
-
-    @Autowired
-    private HistorialService historialService;
 
     @Autowired
     private MovimientoService movimientoService;
@@ -62,11 +57,34 @@ public class VehiculoServiceImpl implements VehiculoService {
     }
 
     @Override
+    public String eliminarVehiculo(Integer id) {
+        if(vehiculoRepository.findByIdVehiculo(id) != null){
+            vehiculoRepository.deleteById(id);
+            return "Eliminado Exitosamente";
+        }
+        return "El mecanico que intenta eliminar no existe!";
+    }
+
+    @Override
+    public String actualizarVehiculo(VehiculoCommand vehiculoCommand) {
+
+
+        VehiculoEntity vehiculoEntity = vehiculoRepository.findByIdVehiculo(vehiculoCommand.getIdVehiculo());
+        validarExistenciaVehiculo(vehiculoEntity);
+
+        vehiculoEntity.setPlaca(vehiculoCommand.getPlaca());
+        vehiculoEntity.setTipoVehiculo(vehiculoCommand.getTipoVehiculo());
+        vehiculoRepository.save(vehiculoEntity);
+        return "Actualizacion Exitosa";
+    }
+
+    @Override
     public Vehiculo consultarInformacionVehiculo(String placa) throws BusinessException {
         VehiculoEntity vehiculoEntity = vehiculoRepository.findByPlaca(placa);
         validarExistenciaVehiculo(vehiculoEntity);
         List<MovimientoEntity> listaMovimientosEntity = movimientoService.findAllByPlaca(placa);
-        return vehiculoFabrica.entityToModel(vehiculoEntity, listaMovimientosEntity);
+        List<Movimiento> movimientos = movimientoService.entityToModel(listaMovimientosEntity);
+        return vehiculoFabrica.entityToModel(vehiculoEntity, movimientos);
     }
 
     private void validarExistenciaVehiculo(VehiculoEntity vehiculoEntity) {

@@ -4,6 +4,8 @@ import com.ansaca.tallerAutomotriz.model.businessexception.BusinessException;
 import com.ansaca.tallerAutomotriz.model.util.Validator;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Vehiculo {
 
@@ -17,14 +19,14 @@ public class Vehiculo {
     private String placa;
     private Boolean estado;
     private String tipoVehiculo;
-    private Historial historial;
+    private List<Movimiento> movimientos = new ArrayList<Movimiento>();
 
     public static class VehiculoBuilder{
         private Integer idVehiculo;
         private String placa;
         private Boolean estado;
         private String tipoVehiculo;
-        private Historial historial;
+        private List<Movimiento> movimientos = new ArrayList<Movimiento>();
 
         public VehiculoBuilder setIdVehiculo(Integer idVehiculo) {
             this.idVehiculo = idVehiculo;
@@ -46,8 +48,8 @@ public class Vehiculo {
             return this;
         }
 
-        public VehiculoBuilder setHistorial(Historial historial) {
-            this.historial = historial;
+        public VehiculoBuilder setMovimientos(List<Movimiento> movimientos) {
+            this.movimientos = movimientos;
             return this;
         }
 
@@ -63,7 +65,7 @@ public class Vehiculo {
             Validator.validarTipoVehiculoNulo(tipoVehiculo, TIPO_VEHICULO_REQUERIDO);
             Validator.validarTipoVehiculoVacio(tipoVehiculo, TIPO_VEHICULO_REQUERIDO);
             vehiculo.tipoVehiculo = this.tipoVehiculo;
-            vehiculo.historial = this.historial;
+            vehiculo.movimientos = this.movimientos;
             return vehiculo;
         }
     }
@@ -84,7 +86,7 @@ public class Vehiculo {
         return tipoVehiculo;
     }
 
-    public Historial getHistorial() {
-        return historial;
+    public List<Movimiento> getMovimientos() {
+        return movimientos;
     }
 }

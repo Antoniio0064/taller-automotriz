@@ -1,6 +1,5 @@
 package com.ansaca.tallerAutomotriz.entity;
 
-import com.ansaca.tallerAutomotriz.model.Historial;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -20,7 +19,7 @@ public class VehiculoEntity {
     private Boolean estado;
     @Column(name = "tipoVehiculo")
     private String tipoVehiculo;
-    @Column(name = "idHistorial")
-    private Integer idHistorial;
+    //@Column(name = "idHistorial")
+    //private Integer idHistorial;
 
 }
